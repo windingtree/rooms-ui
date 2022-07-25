@@ -30,7 +30,6 @@
     "build": "./build-swagger.sh && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "vercel dev",
     "postman-local": "newman run ./api/_postman/tests/API_Tests.postman_collection.json --environment ./api/_postman/environments/local.postman_environment.json",
     "postman-develop": "newman run ./api/_postman/tests/API_Tests.postman_collection.json --environment ./api/_postman/environments/staging.postman_environment.json",
     "postman-master": "newman run ./api/_postman/tests/API_Tests.postman_collection.json --environment ./api/_postman/environments/prod.postman_environment.json",
@@ -61,7 +60,6 @@
     "@storybook/react": "^6.1.17",
     "newman": "^5.1.2",
     "storybook-addon-material-ui": "^0.9.0-alpha.24",
-    "vercel": "^21.3.3",
     "yamljs": "^0.3.0"
   }
 }
