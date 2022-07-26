@@ -13,6 +13,8 @@ const baseMuiTheme = createMuiTheme(baseMuiThemeObj)
 
 const enableStrictMode = false
 
+console.log(process.env)
+
 if (enableStrictMode === true) {
   ReactDOM.render(
     <React.StrictMode>
