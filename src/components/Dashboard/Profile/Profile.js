@@ -60,11 +60,7 @@ export const Profile = ({userProfile}) => {
   const [snackWarn, setSnackWarn] = useState();
   const [imagesUploading, setImagesUploading] = useState(false);
 
-  console.log('Hotel:', hotel)
-  console.log('profile:',userProfile)
-
   useEffect(() => {
-    console.log('useEffect, userProfile:', userProfile)
     if(!userProfile){
       setSnackWarn('Unknown profile. Please sign out and sign in once again');
       return;
@@ -72,14 +68,12 @@ export const Profile = ({userProfile}) => {
 
     //get hotel from cache
     let record = apiCache.getHotel()
-    console.log('useEffect, record from cache:', record)
     if (record) {
       setHotel(record)
     }
     //...and then from server too
     apiClient.getHotel(userProfile.hotelId)
         .then(record=>{
-          console.log('useEffect, record from database:', record)
           setHotel(record)
         })
         .catch(error => {
@@ -163,7 +157,6 @@ export const Profile = ({userProfile}) => {
     handleSave(hotel);
   }
   const handlePropertyChange = (fieldName, value) => {
-    console.log('handlePropertyChange, field:',fieldName,' value:',value)
     const newRecord = objClone(hotel)
     newRecord[fieldName] = value;
     setHotel(newRecord);
@@ -180,7 +173,6 @@ export const Profile = ({userProfile}) => {
   }
 
   const setLocation = (newLocation) => {
-    console.log('setLocation:', newLocation)
     handlePropertyChange('location', newLocation);
   }
 

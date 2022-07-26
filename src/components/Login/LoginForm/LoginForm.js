@@ -183,7 +183,7 @@ class LoginForm extends React.Component {
         if (this._isDestroyed) {
           return
         }
-        console.log('success')
+
         this.setState({ tryingToLogin: false })
         this.props.onLogin(response)
         gaUserEvent('login_success')

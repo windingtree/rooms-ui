@@ -8,10 +8,14 @@ import {
   ApiCache,
 } from '../../api_cache'
 
+import {
+  CONSTANTS
+} from '../../constants'
+
 const apiCache = ApiCache.getInstance()
 
 function getBookings() {
-  return fetch('/api/v1/bookings', {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/bookings`, {
     method: 'GET',
     headers: makeAuthHeaders(),
   }).then(checkStatus)
@@ -24,21 +28,19 @@ function getBookings() {
 }
 
 function getBooking(id) {
-    console.log('api.getBooking, id=', id)
-  return fetch(`/api/v1/booking/${id}`, {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/booking/${id}`, {
     method: 'GET',
     headers: makeAuthHeaders(),
   }).then(checkStatus)
     .then(parseJSON)
     .then((booking) => {
-        console.log('api.getBooking', booking)
       apiCache.updateBooking(id, booking)
       return booking
     })
 }
 
 function createBooking(data) {
-  return fetch('/api/v1/booking', {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/booking`, {
     method: 'POST',
     headers: makeAuthHeaders(),
     body: JSON.stringify(data),
@@ -55,7 +57,7 @@ function createBooking(data) {
 function updateBooking(id, data) {
   apiCache.updateBooking(id, data)
 
-  return fetch(`/api/v1/booking/${id}`, {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/booking/${id}`, {
     method: 'PATCH',
     headers: makeAuthHeaders(),
     body: JSON.stringify(data),
@@ -71,7 +73,7 @@ function updateBooking(id, data) {
 function deleteBooking(id) {
   apiCache.deleteBooking(id)
 
-  return fetch(`/api/v1/booking/${id}`, {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/booking/${id}`, {
     method: 'DELETE',
     headers: makeAuthHeaders(),
   }).then(checkStatus)
@@ -84,7 +86,7 @@ function deleteBooking(id) {
 }
 
 function getBookingPrice(data) {
-    return fetch(`/api/v1/booking_price`, {
+    return fetch(`${CONSTANTS.API_URL}/api/v1/booking_price`, {
         method: 'POST',
         headers: makeAuthHeaders(),
         body: JSON.stringify(data)

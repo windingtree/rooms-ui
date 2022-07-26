@@ -8,10 +8,14 @@ import {
   ApiCache,
 } from '../../api_cache'
 
+import {
+  CONSTANTS
+} from '../../constants'
+
 const apiCache = ApiCache.getInstance()
 
 function getProfile(id) {
-  return fetch(`/api/v1/profile/${id}`, {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/profile/${id}`, {
     method: 'GET',
     headers: makeAuthHeaders(),
   }).then(checkStatus)
@@ -26,7 +30,7 @@ function getProfile(id) {
 function updateProfile(id, data) {
   apiCache.updateProfile(data)
 
-  return fetch(`/api/v1/profile/${id}`, {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/profile/${id}`, {
     method: 'PATCH',
     headers: makeAuthHeaders(),
     body: JSON.stringify(data),
