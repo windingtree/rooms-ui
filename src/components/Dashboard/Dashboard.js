@@ -12,7 +12,6 @@ import Rates from './Rates/Rates'
 import Profile from './Profile/Profile'
 import { history } from '../../utils/history'
 import RateModifierEditForm from "./RateEdit/RateEditForm";
-import {Sandbox} from "../Dev/Sandbox";
 import {PageView} from "../../utils/functions/analytics";
 
 const useStyles = () => {
@@ -147,9 +146,6 @@ class Dashboard extends React.Component {
               <Route exact path="/dashboard/profile">
                 <PageView title="hotel_profile"/>
                 { this.isLoggedIn ? <Profile userProfile={this.props.userProfile} /> : <Redirect to="/" /> }
-              </Route>
-              <Route exact path="/dashboard/dev/fonts">
-                <Sandbox/>
               </Route>
               <Route render={() => <><PageView title="404_not_found"/><h1>404: page not found</h1></>} />
             </Switch>
