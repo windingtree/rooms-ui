@@ -92,20 +92,20 @@ class OnBoarding extends React.Component {
       <div className={classes.container}>
         <h1 className={classes.mainTitle}>Say Hello to Rooms</h1>
         <div className={classes.paragraph}>No more pen &amp; paper or excel sheets or whatever you use to manage your Hotel</div>
-        <img alt="" className={classes.image} src="./intro/01.png" />
+        <img alt="" className={classes.image} src="./landing/01.png" />
         <div className={classes.paragraph}>Track your bookings hassle-free, manage rooms availability, create special offers, and get connected to online travel agencies</div>
         <Button className={classes.loginBtn} variant="contained" color="secondary" onClick={this.loginClickHandler}>LOG IN TO ROOMS</Button>
         <div className={classes.paragraph}>Rooms is a lightweight one-stop hotel management web application, that gives you all you need, and nothing you don’t really need</div>
         <h1 className={classes.mainTitle}>All you need</h1>
-        <img alt="" className={classes.image} src="./intro/02.png" />
+        <img alt="" className={classes.image} src="./landing/02.png" />
         <div className={classes.paragraph}>Create a Profile for your Hotel and let travellers find you immediately</div>
-        <img alt="" className={classes.image} src="./intro/03.png" />
+        <img alt="" className={classes.image} src="./landing/03.png" />
         <div className={classes.paragraph}>Add your Rooms, so that the travellers could see what they can book</div>
-        <img alt="" className={classes.image} src="./intro/04.png" />
+        <img alt="" className={classes.image} src="./landing/04.png" />
         <div className={classes.paragraph}>Create special offers, discounts, and price increases to manage high and low seasons. Travellers instantly get the updated rates</div>
-        <img alt="" className={classes.image} src="./intro/05.png" />
+        <img alt="" className={classes.image} src="./landing/05.png" />
         <div className={classes.paragraph}>Enjoy the power of API and recieve automatic bookings from online travel agencies</div>
-        <img alt="" className={classes.image} src="./intro/06.png" />
+        <img alt="" className={classes.image} src="./landing/06.png" />
         <div className={classes.paragraph}>Create records manually,
 so that phone reservations, walk-ins, or messenger bookings will all drop in the same bucket with those coming from the Internet</div>
         <Button className={classes.loginBtn} variant="contained" color="secondary" onClick={this.loginClickHandler}>LOG IN TO ROOMS</Button>
