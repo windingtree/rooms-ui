@@ -51,7 +51,6 @@ const reorderRateModifiersList = (rateModifiers, startIndex, endIndex) => {
 
 export const RateModifiersList = ({rateModifiers, roomTypes, rateModifierChanged, handleEditRateModifier}) => {
     const [rates, setRates] = useState(sortRatesByPriority(rateModifiers));
-    console.log('Render list')
     const onDragEnd = (result) =>{
         // dropped outside the list
         if (!result.destination) {

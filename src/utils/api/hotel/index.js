@@ -8,10 +8,14 @@ import {
   ApiCache,
 } from '../../api_cache'
 
+import {
+  CONSTANTS
+} from '../../constants'
+
 const apiCache = ApiCache.getInstance()
 
 function getHotel(id) {
-  return fetch(`/api/v1/hotel/${id}`, {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/hotel/${id}`, {
     method: 'GET',
     headers: makeAuthHeaders(),
   }).then(checkStatus)
@@ -26,7 +30,7 @@ function getHotel(id) {
 function updateHotel(id, data) {
   apiCache.updateHotel(data)
 
-  return fetch(`/api/v1/hotel/${id}`, {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/hotel/${id}`, {
     method: 'PATCH',
     headers: makeAuthHeaders(),
     body: JSON.stringify(data),

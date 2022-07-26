@@ -3,10 +3,14 @@ import {
   makeAuthHeaders,
   parseJSON,
 } from '../helpers'
+
 import {
   ApiCache,
 } from '../../api_cache'
 
+import {
+  CONSTANTS
+} from '../../constants'
 
 export const CRITERIA_TYPE_DATERANGE = 'DATE_RANGE';
 export const CRITERIA_TYPE_DAYOFWEEK = 'DAYOFWEEK';
@@ -18,7 +22,7 @@ export const TYPE_PERCENTAGE = 'percentage';
 const apiCache = ApiCache.getInstance()
 
 function getRateModifiers() {
-  return fetch('/api/v1/rate_modifiers', {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/rate_modifiers`, {
     method: 'GET',
     headers: makeAuthHeaders(),
   }).then(checkStatus)
@@ -30,7 +34,7 @@ function getRateModifiers() {
 }
 
 function getRateModifier(id) {
-  return fetch(`/api/v1/rate_modifier/${id}`, {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/rate_modifier/${id}`, {
     method: 'GET',
     headers: makeAuthHeaders(),
   }).then(checkStatus)
@@ -42,7 +46,7 @@ function getRateModifier(id) {
     })
 }
 function createRateModifier(data) {
-  return fetch('/api/v1/rate_modifier', {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/rate_modifier`, {
     method: 'POST',
     headers: makeAuthHeaders(),
     body: JSON.stringify(data),
@@ -57,7 +61,7 @@ function createRateModifier(data) {
 function updateRateModifier(id, data) {
   apiCache.updateRateModifier(id, data)
 
-  return fetch(`/api/v1/rate_modifier/${id}`, {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/rate_modifier/${id}`, {
     method: 'PATCH',
     headers: makeAuthHeaders(),
     body: JSON.stringify(data),
@@ -72,7 +76,7 @@ function updateRateModifier(id, data) {
 function deleteRateModifier(id) {
   apiCache.updateRateModifier(id)
 
-  return fetch(`/api/v1/rate_modifier/${id}`, {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/rate_modifier/${id}`, {
     method: 'DELETE',
     headers: makeAuthHeaders(),
   }).then(checkStatus)

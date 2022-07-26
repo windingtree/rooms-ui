@@ -8,10 +8,14 @@ import {
   ApiCache,
 } from '../../api_cache'
 
+import {
+  CONSTANTS
+} from '../../constants'
+
 const apiCache = ApiCache.getInstance()
 
 function getRoomTypes() {
-  return fetch('/api/v1/room_types', {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/room_types`, {
     method: 'GET',
     headers: makeAuthHeaders(),
   }).then(checkStatus)
@@ -24,7 +28,7 @@ function getRoomTypes() {
 }
 
 function getRoomType(id) {
-  return fetch(`/api/v1/room_type/${id}`, {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/room_type/${id}`, {
     method: 'GET',
     headers: makeAuthHeaders(),
   }).then(checkStatus)
@@ -37,7 +41,7 @@ function getRoomType(id) {
 }
 
 function createRoomType(data) {
-  return fetch('/api/v1/room_type', {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/room_type`, {
     method: 'POST',
     headers: makeAuthHeaders(),
     body: JSON.stringify(data),
@@ -54,7 +58,7 @@ function createRoomType(data) {
 function updateRoomType(id, data) {
   apiCache.updateRoomType(id, data)
 
-  return fetch(`/api/v1/room_type/${id}`, {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/room_type/${id}`, {
     method: 'PATCH',
     headers: makeAuthHeaders(),
     body: JSON.stringify(data),
@@ -70,7 +74,7 @@ function updateRoomType(id, data) {
 function deleteRoomType(id) {
   apiCache.deleteRoomType(id)
 
-  return fetch(`/api/v1/room_type/${id}`, {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/room_type/${id}`, {
     method: 'DELETE',
     headers: makeAuthHeaders(),
   }).then(checkStatus)
@@ -85,7 +89,7 @@ function deleteRoomType(id) {
 function uploadImages(images) {
   return Promise.all(images.map(
     image => fetch(
-      `/api/v1/upload_image`,
+      `${CONSTANTS.API_URL}/api/v1/upload_image`,
       {
         method: 'POST',
         headers: makeAuthHeaders(),

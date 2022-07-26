@@ -5,13 +5,17 @@ import {
 } from '../helpers'
 
 import {
+  CONSTANTS
+} from '../../constants'
+
+import {
   ApiCache,
 } from '../../api_cache'
 
 const apiCache = ApiCache.getInstance()
 
 function login(data) {
-  return fetch('/api/v1/login', {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/login`, {
     method: 'POST',
     headers: makeHeaders(),
     body: JSON.stringify(data),
@@ -25,7 +29,7 @@ function login(data) {
 }
 
 function emailOneTimePassword(data) {
-  return fetch('/api/v1/one_time_password', {
+  return fetch(`${CONSTANTS.API_URL}/api/v1/one_time_password`, {
     method: 'POST',
     headers: makeHeaders(),
     body: JSON.stringify(data),
